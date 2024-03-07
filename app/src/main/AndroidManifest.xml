@@ -16,7 +16,7 @@
             android:name=".ChatGPT"
             android:exported="false" />
         <activity
-            android:name=".Splash_Screen"
+            android:name=".Splash_screen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

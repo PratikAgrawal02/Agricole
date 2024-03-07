@@ -3,4 +3,9 @@
     <string name="motive2">test</string>
     <string name="from">From</string>
     <string name="author">Goblins</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home">Home</string>
+    <string name="task">Task</string>
+    <string name="farm">Farm</string>
+    <string name="profile">Profile</string>
 </resources>
