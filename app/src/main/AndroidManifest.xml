@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Agricole"
         tools:targetApi="31">
         <activity
+            android:name=".ChatGPT"
+            android:exported="false" />
+        <activity
             android:name=".Splash_Screen"
             android:exported="false">
             <meta-data
