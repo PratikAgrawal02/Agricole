@@ -7,7 +7,7 @@ import android.os.Handler
 import com.google.firebase.auth.FirebaseAuth
 
 
-class Splash_screen : AppCompatActivity() {
+class Splash_Screen : AppCompatActivity() {
     var h: Handler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,9 +15,9 @@ class Splash_screen : AppCompatActivity() {
         h = Handler()
         h!!.postDelayed({
             val auth = FirebaseAuth.getInstance()
-            if (auth.currentUser == null) startActivity(Intent(this@Splash_screen, MainActivity::class.java))//login pe redirect
+            if (auth.currentUser == null) startActivity(Intent(this@Splash_Screen, Login_page::class.java))//login pe redirect
             else {
-                startActivity(Intent(this@Splash_screen, MainActivity::class.java))
+                startActivity(Intent(this@Splash_Screen, MainActivity::class.java))
             }
         }, 3000)
     }
