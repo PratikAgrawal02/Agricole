@@ -105,7 +105,7 @@ public class ChatGPT extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonObject.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer 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")
                 .post(body)
                 .build();
 

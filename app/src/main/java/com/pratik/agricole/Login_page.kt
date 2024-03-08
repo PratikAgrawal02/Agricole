@@ -54,7 +54,7 @@ class Login_page : AppCompatActivity() {
     }
 
     private fun login() {
-        val email = edit_username_input.text.toString()
+        val email = edit_username_input.text.toString().trim()+"@gmail.com"
         val pass = edit_password_input.text.toString()
         // calling signInWithEmailAndPassword(email, pass)
         // function using Firebase auth object

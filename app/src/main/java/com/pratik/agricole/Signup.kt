@@ -17,6 +17,7 @@ import com.google.firebase.database.core.view.View
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.pratik.agricole.databinding.ActivitySignupBinding
+import com.pratik.agricole.models.FarmModel
 
 
 class Signup : AppCompatActivity() {
@@ -59,7 +60,7 @@ class Signup : AppCompatActivity() {
     }
 
     private fun signUpUser() {
-        val email = edit_username_input.text.toString()
+        val email = edit_username_input.text.toString().trim() + "@gmail.com"
         val pass = edit_password_input.text.toString()
         val confirmPassword = edit_password_input_confirm.text.toString()
 
@@ -80,9 +81,7 @@ class Signup : AppCompatActivity() {
                 if (newu){
                     auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
                         if (it.isSuccessful) {
-                            Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, Login_page::class.java)
-                            startActivity(intent)
+                            adddefaultfarm()
                         } else {
                             Toast.makeText(this, "Singed Up Failed!", Toast.LENGTH_SHORT).show()
                         }
@@ -96,6 +95,24 @@ class Signup : AppCompatActivity() {
 
 
 
+    }
+
+    private fun adddefaultfarm() {
+        UserdatabaseRef = database.getReference("users").child(auth.uid.toString()).child("farms").child("1")
+        val farmModel: FarmModel = FarmModel("Tomato Farm 1", "1.2 ha",
+        "1" , "https://bit.ly/3wJmFtF")
+
+        UserdatabaseRef.setValue(farmModel).addOnCompleteListener {
+            if (it.isSuccessful){
+                Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Login_page::class.java)
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this,"Registration Failed with uid ${auth.uid}", Toast.LENGTH_SHORT).show()
+
+            }
+        }
     }
 
 

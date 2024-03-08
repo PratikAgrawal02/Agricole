@@ -43,12 +43,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
-            <ImageView
+            <ImageButton
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:src="@drawable/ic_baseline_language_24"
                 android:layout_gravity="center_vertical"
-
+                android:clickable="true"
+                android:id="@+id/changelang"
                 android:layout_marginEnd="@dimen/_6sdp"
                 app:tint="@color/dark_grey" />
 
@@ -98,7 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_margin="@dimen/_5sdp"
-                    android:orientation="horizontal"                      android:paddingStart="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_20sdp"
                     android:paddingEnd="@dimen/_20sdp"
                     android:background="@drawable/rounded_corner_white">
                     <LinearLayout

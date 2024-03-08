@@ -31,7 +31,7 @@
     <string name="farm">Farm</string>
     <string name="profile">Profile</string>
     <string name="currentlocation">Sri City, AP </string>
-    <string name="morning">Today is a partly sunny day!</string>
+    <string name="morning">आज आंशिक धूप वाला दिन है!</string>
     <string name="humidity">Humidity</string>
     <string name="precipitation">Precipitation</string>
     <string name="wind_speed">Wind Speed</string>
