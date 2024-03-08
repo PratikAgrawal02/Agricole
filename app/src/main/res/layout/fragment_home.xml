@@ -67,7 +67,6 @@
             android:layout_width="match_parent"
             app:cardCornerRadius="10dp"
             android:clickable="true"
-            android:id="@+id/washniron"
             app:cardBackgroundColor="#F6F5F5"
             android:layout_marginTop="-4dp"
             android:layout_height="wrap_content">

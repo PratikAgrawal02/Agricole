@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="crop_status">Crop Status</string>
+    <string name="planting_date">Planting Date</string>
+    <string name="accumlated_gdd">Accumlated GDD</string>
+    <string name="erz">Effective Root Zone</string>
+    <string name="setup">Setup</string>
+</resources>

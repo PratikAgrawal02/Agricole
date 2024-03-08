@@ -45,4 +45,10 @@
     <string name="farm_name">Farm Name</string>
     <string name="add_free">Add Upto 10 Farms for Free</string>
     <string name="soil_moisture_status">Soil Moisture Status</string>
+    <string name="crop_status">Crop Status</string>
+    <string name="planting_date">Planting Date</string>
+    <string name="accumlated_gdd">Accumlated GDD</string>
+    <string name="erz">Effective Root Zone</string>
+    <string name="harvest">You can customize the harvest according to your plans</string>
+    <string name="setup">Setup</string>
 </resources>
