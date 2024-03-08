@@ -8,4 +8,9 @@ class ChatGPT : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_gpt)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+    }
 }

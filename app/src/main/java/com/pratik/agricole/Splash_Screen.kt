@@ -15,7 +15,7 @@ class Splash_Screen : AppCompatActivity() {
         h = Handler()
         h!!.postDelayed({
             val auth = FirebaseAuth.getInstance()
-            if (auth.currentUser == null) startActivity(Intent(this@Splash_Screen, Login_page::class.java))//login pe redirect
+            if (auth.currentUser == null) startActivity(Intent(this@Splash_Screen, MainActivity::class.java))//login pe redirect
             else {
                 startActivity(Intent(this@Splash_Screen, MainActivity::class.java))
             }
