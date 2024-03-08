@@ -19,6 +19,10 @@
     <string name="username_error_long_username">Username is too long</string>
     <string name="login_error_incorrect_input">Username or login is incorrect. Try again or sign up!</string>
 
+<!--    Parth-->
+
+
+
 
     <string name="motive2">test</string>
     <string name="from">From</string>
@@ -35,4 +39,7 @@
     <string name="wind_speed">Wind Speed</string>
     <string name="checkai">Check our AI Recommendation \nfor your fields</string>
     <string name="_0_01_in"><![CDATA[<0.01 in]]></string>
+    <string name="todo">TODO</string>
+    <string name="write_here">Type here</string>
+    <string name="welcome">Welcome To Agribot</string>
 </resources>

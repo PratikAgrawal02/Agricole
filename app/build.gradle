@@ -63,5 +63,5 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.3'
 
     // chat gpt
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
 }

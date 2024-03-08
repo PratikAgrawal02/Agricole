@@ -1,5 +1,6 @@
 package com.pratik.agricole
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,11 +19,14 @@ class Home : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding =  FragmentHomeBinding.inflate(inflater, container, false)
-
+        binding.chatgptcard.setOnClickListener {
+            openchatgpt(it)
+        }
         return binding.root
     }
 
     fun openchatgpt(view: View) {
+        startActivity(Intent(requireActivity(), ChatGPT::class.java))
 
     }
 }
