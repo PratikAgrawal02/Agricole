@@ -4,12 +4,11 @@
 
     <!--    Shubham-->
     <string name="login_text">Login</string>
-    <string name="edit_text_username">Username</string>
+    <string name="edit_text_username">Email</string>
     <string name="edit_text_password">Password</string>
     <string name="button_sign_in">Sign in</string>
     <string name="button_sign_up">Don`t have an account? Sign up!</string>
-
-    <string name="sign_up">Sign up</string>
+    <string name="already_have_an_account_login">Already have an account? Login\n</string>    <string name="sign_up">Sign up</string>
     <string name="edit_text_password_confirm">Confirm password</string>
     <string name="button_sign_up_activity">Sign up</string>
     <string name="password_error_no_password">Please enter password</string>
@@ -42,4 +41,6 @@
     <string name="todo">TODO</string>
     <string name="write_here">Type here</string>
     <string name="welcome">Welcome To Agribot</string>
+    <string name="see_all">See all</string>
+    <string name="my_fields">My fields</string>
 </resources>

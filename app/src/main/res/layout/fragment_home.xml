@@ -216,6 +216,33 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_13sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_fields"
+                android:fontFamily="@font/firs_nueue_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all"
+                android:clickable="true"
+                android:id="@+id/seeallfields"
+                android:fontFamily="@font/firs_nueu_medium"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_12sdp"/>
+        </LinearLayout>
+
 
 
 

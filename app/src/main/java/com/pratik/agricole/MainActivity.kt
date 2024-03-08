@@ -1,9 +1,12 @@
 package com.pratik.agricole
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -11,14 +14,17 @@ class MainActivity : AppCompatActivity() {
     val homeFragment : Home = Home()
     val feilds : Feilds = Feilds()
     val tasks : Tasks = Tasks()
+    lateinit var fab : FloatingActionButton
     val profile : Profile = Profile()
     val fragmentlist = arrayOf(homeFragment,tasks,feilds,profile)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
+        fab = findViewById(R.id.fab)
+        fab.setOnClickListener{
+            openchatgpt(it)
+        }
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background = null
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout,homeFragment).commit()
@@ -36,5 +42,13 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout,fragment).commit()
 
+    }
+    fun openchatgpt(view: View) {
+        startActivity(Intent(this, ChatGPT::class.java))
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }
