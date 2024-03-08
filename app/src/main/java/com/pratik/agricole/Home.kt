@@ -16,10 +16,17 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.pratik.agricole.databinding.FragmentHomeBinding
+import com.pratik.agricole.models.FarmAdapter
+import com.pratik.agricole.models.FarmAdapterHome
+import com.pratik.agricole.models.FarmModel
 import org.json.JSONObject
 import java.net.URL
 import java.util.*
@@ -29,20 +36,36 @@ class Home : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    var farmlist: ArrayList<FarmModel> = ArrayList()
+    lateinit var adapter: FarmAdapterHome
+    lateinit var database: FirebaseDatabase
+    lateinit var auth: FirebaseAuth
+    lateinit var ref : DatabaseReference
+
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    val CITY : String = "Tada,IN"
-    val API: String ="c6908f27f7d2259a311d61030d2aadae"
-    var lat :String ?= null
-    var lon:String ?= null
+    val CITY: String = "Tada,IN"
+    val API: String = "c6908f27f7d2259a311d61030d2aadae"
+    var lat: String? = null
+    var lon: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding =  FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(requireActivity())
+        binding.farmFields.layoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
+        adapter = FarmAdapterHome(requireActivity(),farmlist)
+        binding.farmFields.adapter = adapter
+        database =  FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        ref = database.reference.child("users").child(auth.uid.toString()).child("farms")
+        loadfarm()
+
+        fusedLocationProviderClient =
+            LocationServices.getFusedLocationProviderClient(requireActivity())
         fetchLocation()
 
 
@@ -50,32 +73,50 @@ class Home : Fragment() {
             openchatgpt(it)
         }
         loadLocate()
-        binding.changelang.setOnClickListener{
+        binding.changelang.setOnClickListener {
 
             showChangeLanguageDialog(requireActivity());
         }
         return binding.root
     }
 
-    inner class weatherTask() : AsyncTask<String, Void, String>(){
+    private fun loadfarm() {
+        ref.get().addOnSuccessListener {
+            farmlist.clear()
+            for (item in it.children){
+                val farmModel = FarmModel(
+                    item.child("farmname").value.toString(),
+                    item.child("farmsize").value.toString()+" ha",
+                    item.key ,
+                    item.child("farmimage").value.toString()
+                )
+                farmlist.add(farmModel)
+            }
+
+            adapter.notifyDataSetChanged()
+        }
+
+    }
+    inner class weatherTask() : AsyncTask<String, Void, String>() {
         override fun doInBackground(vararg p0: String?): String? {
             var response: String?
 
             try {
-                response= URL("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$API").readText(Charsets.UTF_8)
-            }
-            catch (e:Exception)
-            {
-                response=null
+                response =
+                    URL("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$API").readText(
+                        Charsets.UTF_8
+                    )
+            } catch (e: Exception) {
+                response = null
             }
             return response
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
-            Log.i("lat",lat.toString())
-            Log.i("lon",lon.toString())
-            Log.i("result",result.toString())
+            Log.i("lat", lat.toString())
+            Log.i("lon", lon.toString())
+            Log.i("result", result.toString())
             if (result.isNullOrBlank()) {
                 // Handle case where response is empty or null
                 AlertDialog.Builder(requireContext())
@@ -85,28 +126,27 @@ class Home : Fragment() {
                     .show()
                 return
             }
-            try{
-                val jsonObj=JSONObject(result)
-                val main=jsonObj.getJSONObject("main")
-                val sys=jsonObj.getJSONObject("sys")
-                val temp=main.getDouble("temp").toInt()-273
-                val wind=jsonObj.getJSONObject("wind").getString("speed")
-                val humidity=main.getString("humidity")
-                val rain=String.format("%.2f",humidity.toInt()*0.0075)
-                val weather=jsonObj.getJSONArray("weather").getJSONObject(0)
-                val address=jsonObj.getString("name").toString()
-                val id=weather.getInt("id")
-                val message=weather.getString("description")
-                val city=jsonObj.getString("name")+","+sys.getString("country")
-                binding.temperature.text=temp.toString()+" °C"
-                binding.wind.text=wind.toString()+" m/s"
-                binding.prec.text=rain.toString()+" mm"
-                binding.humidity.text=humidity.toString()+" %"
-                binding.message.text=message.toString().capitalize()
-                binding.location.text=address.toString().capitalize()
+            try {
+                val jsonObj = JSONObject(result)
+                val main = jsonObj.getJSONObject("main")
+                val sys = jsonObj.getJSONObject("sys")
+                val temp = main.getDouble("temp").toInt() - 273
+                val wind = jsonObj.getJSONObject("wind").getString("speed")
+                val humidity = main.getString("humidity")
+                val rain = String.format("%.2f", humidity.toInt() * 0.0075)
+                val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
+                val address = jsonObj.getString("name").toString()
+                val id = weather.getInt("id")
+                val message = weather.getString("description")
+                val city = jsonObj.getString("name") + "," + sys.getString("country")
+                binding.temperature.text = temp.toString() + " °C"
+                binding.wind.text = wind.toString() + " m/s"
+                binding.prec.text = rain.toString() + " mm"
+                binding.humidity.text = humidity.toString() + " %"
+                binding.message.text = message.toString().capitalize()
+                binding.location.text = address.toString().capitalize()
                 updateWeatherIcon(id)
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 e.printStackTrace()
                 AlertDialog.Builder(requireContext())
                     .setTitle("Error")
@@ -119,13 +159,13 @@ class Home : Fragment() {
     }
 
 
-
     fun openchatgpt(view: View) {
         startActivity(Intent(requireActivity(), ChatGPT::class.java))
 
     }
+
     private fun showChangeLanguageDialog(requireActivity: FragmentActivity) {
-        val listitems = arrayOf("हिंदी","తెలుగు","English")
+        val listitems = arrayOf("हिंदी", "తెలుగు", "English")
 
         val mBuilder = AlertDialog.Builder(requireActivity)
         mBuilder.setTitle("Choose Language")
@@ -148,9 +188,7 @@ class Home : Fragment() {
         mDialog.show()
 
 
-
     }
-
 
 
     private fun updateWeatherIcon(condition: Int) {
@@ -185,7 +223,6 @@ class Home : Fragment() {
     }
 
 
-
     private fun setLocate(Lang: String) {
 
         val locale = Locale(Lang)
@@ -195,21 +232,27 @@ class Home : Fragment() {
         val config = Configuration()
 
         config.locale = locale
-        requireActivity().baseContext.resources.updateConfiguration(config, requireActivity().baseContext.resources.displayMetrics)
+        requireActivity().baseContext.resources.updateConfiguration(
+            config,
+            requireActivity().baseContext.resources.displayMetrics
+        )
 
         val editor = requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
         editor.putString("My_Lang", Lang)
         editor.apply()
     }
+
     private fun loadLocate() {
-        val sharedPreferences = requireActivity().getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val sharedPreferences =
+            requireActivity().getSharedPreferences("Settings", Activity.MODE_PRIVATE)
         val language = sharedPreferences.getString("My_Lang", "")
         if (language != null) {
             setLocate(language)
         }
     }
+
     private fun fetchLocation() {
-        val task: Task<Location> =fusedLocationProviderClient.lastLocation
+        val task: Task<Location> = fusedLocationProviderClient.lastLocation
         if (ActivityCompat.checkSelfPermission(
                 requireActivity(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -220,13 +263,17 @@ class Home : Fragment() {
             )
             != PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),101)
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                101
+            )
             return
         }
         task.addOnSuccessListener {
-            if(it !=null){
-                lat=it.latitude.toString()
-                lon=it.longitude.toString()
+            if (it != null) {
+                lat = it.latitude.toString()
+                lon = it.longitude.toString()
                 weatherTask().execute()
             }
         }
