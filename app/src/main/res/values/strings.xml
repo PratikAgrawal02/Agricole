@@ -51,4 +51,8 @@
     <string name="erz">Effective Root Zone</string>
     <string name="harvest">You can customize the harvest according to your plans</string>
     <string name="setup">Setup</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="mark_as_completed">Mark as Completed</string>
+    <string name="reset">Reset</string>
 </resources>
