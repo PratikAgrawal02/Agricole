@@ -19,6 +19,16 @@
     <string name="username_error_long_username">వినియోగదారు పేరు చాలా పొడవుగా ఉంది</string>
     <string name="login_error_incorrect_input">వినియోగదారు పేరు లేదా లాగిన్ తప్పు. మళ్లీ ప్రయత్నించండి లేదా సైన్ అప్ చేయండి!</string>
 
+
+    <string name="job_success">Job Success</string>
+    <string name="ui_ux_designer">UI/UX Designer</string>
+    <string name="my_desc">Doing at the sweet spot between aesthetics and elegance to give life to your brand.My opinion belong to nobody but myself.</string>
+    <string name="about_me">About Me</string>
+    <string name="contact">Contact</string>
+    <string name="skills">Skills</string>
+    <string name="ratings">Star Ratings</string>
+    <string name="samplereview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium bibendum sapien, ut euismod massa. Duis convallis sem sed turpis elementum auctor.</string>
+    <string name="about_us">About Us</string>
     <!--    Parth-->
 
 
@@ -54,5 +64,6 @@
     <string name="delete">Delete</string>
     <string name="mark_as_completed">Mark as Completed</string>
     <string name="reset">Reset</string>
+    <string name="edit">Edit</string>
 
 </resources>

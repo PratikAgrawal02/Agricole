@@ -13,5 +13,7 @@
     <color name="red">#e43131</color>
     <color name="purple">#572fe0</color>
     <color name="green">#558A76</color>
-
+    <color name="goodgrey">#535353</color>
+    <color name="blue">#293859</color>
+    <color name="lightgrey">#EEEEEE</color>
 </resources>
