@@ -183,6 +183,8 @@
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_height="@dimen/_48sdp"
+            android:clickable="true"
+            android:onClick="openchatgpt"
             android:background="@drawable/grass_green_button_rect"
             android:orientation="horizontal">
             <ImageView

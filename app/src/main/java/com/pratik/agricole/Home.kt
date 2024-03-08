@@ -21,4 +21,8 @@ class Home : Fragment() {
 
         return binding.root
     }
+
+    fun openchatgpt(view: View) {
+
+    }
 }
