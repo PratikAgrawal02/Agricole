@@ -40,7 +40,8 @@ public class FarmAdapter extends RecyclerView.Adapter<FarmAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FarmModel model = farmModels.get(position);
         Picasso.get().load(model.farmimage).into(holder.farmimage);
-        holder.farmsize.setText(model.farmsize);
+        holder.farmsize.setText(model.farmsize + " Ha");
+
        holder.farmname.setText(model.farmname);
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override

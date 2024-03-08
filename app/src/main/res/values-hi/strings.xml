@@ -55,15 +55,21 @@
     <string name="farm_name">फार्म का नाम</string>
     <string name="add_free">10 फ़ार्म तक निःशुल्क जोड़ें</string>
     <string name="soil_moisture_status">मिट्टी की नमी की स्थिति</string>
-    <string name="crop_status">Crop Status</string>
-    <string name="planting_date">Planting Date</string>
-    <string name="accumlated_gdd">Accumlated GDD</string>
-    <string name="erz">Effective Root Zone</string>
-    <string name="setup">Setup</string>
-    <string name="harvest">You can customize the harvest according to your plans</string>
-    <string name="delete">Delete</string>
-    <string name="mark_as_completed">Mark as Completed</string>
-    <string name="reset">Reset</string>
-    <string name="edit">Edit</string>
+    <string name="crop_status">फसल की स्थिति</string>
+    <string name="planting_date">रोपण तिथि</string>
+    <string name="accumlated_gdd">संचित जीडीडी</string>
+    <string name="erz">प्रभावी जड़ क्षेत्र</string>
+    <string name="setup">स्थापित करना</string>
+    <string name="harvest">आप अपनी योजना के अनुसार फसल को अनुकूलित कर सकते हैं</string>
+    <string name="delete">मिटाना</string>
+    <string name="mark_as_completed">पूर्ण के रूप में चिह्नित करें</string>
+    <string name="reset">रीसेट</string>
+    <string name="edit">संपादन करना</string>
+    <string name="harvest_date">फसल की तारीख</string>
+    <string name="stocked_crop">भंडारित फसल</string>
+    <string name="crop_yield_prediction">फसल उपज की भविष्यवाणी</string>
+    <string name="today">आज</string>
+    <string name="crop_inventory">फसल सूची</string>
+    <string name="expeted">यह खेत की अपेक्षित फसल है</string>
 
 </resources>

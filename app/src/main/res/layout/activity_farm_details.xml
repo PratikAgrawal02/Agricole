@@ -98,7 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/dark_grey"
-                        android:text="Today"
+                        android:text="@string/today"
                         android:textSize="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:fontFamily="@font/firs_nueue"/>
@@ -302,6 +302,213 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="10dp"
+            android:clickable="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_10sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/crop_inventory"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:fontFamily="@font/firs_nueu_medium"/>
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_1sdp"
+                    app:cardBackgroundColor="#F2F2F3"
+                    app:cardCornerRadius="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp"
+                        android:gravity="center_vertical"
+                        android:layout_margin="@dimen/_2sdp">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/date"
+                            android:scaleType="fitXY"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/harvest_date"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/firs_nueue"
+                            android:layout_marginStart="@dimen/_6sdp"/>
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="May 28"
+                            android:id="@+id/harvestdate"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/firs_nueue_bold"
+                            android:layout_marginEnd="@dimen/_6sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_5sdp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_1sdp"
+                    app:cardBackgroundColor="#F2F2F3"
+                    app:cardCornerRadius="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp"
+                        android:gravity="center_vertical"
+                        android:layout_margin="@dimen/_2sdp">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/crops"
+                            android:scaleType="fitXY"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/crop_yield_prediction"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/firs_nueue"
+                            android:layout_marginStart="@dimen/_6sdp"/>
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="832 Kg"
+                            android:id="@+id/cropyeild"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/firs_nueue_bold"
+                            android:layout_marginEnd="@dimen/_6sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_5sdp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_1sdp"
+                    app:cardBackgroundColor="#F2F2F3"
+                    app:cardCornerRadius="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp"
+                        android:gravity="center_vertical"
+                        android:layout_margin="@dimen/_2sdp">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/warehouse"
+                            android:scaleType="fitXY"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stocked_crop"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/firs_nueue"
+                            android:layout_marginStart="@dimen/_6sdp"/>
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1130 Kg"
+                            android:id="@+id/stocked_crop"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/firs_nueue_bold"
+                            android:layout_marginEnd="@dimen/_6sdp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:layout_gravity="center"
+                    android:text="@string/expeted"
+                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_8sdp"
+                    android:fontFamily="@font/firs_nueu_medium"/>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:clickable="true"
+                android:id="@+id/speaktxt"
+                android:src="@drawable/speakw"/>
+            <Space
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:clickable="true"
+                android:id="@+id/stop"
+                android:src="@drawable/stop"/>
+        </LinearLayout>
+
 
 
     </LinearLayout>
