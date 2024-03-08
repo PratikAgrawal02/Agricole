@@ -54,12 +54,15 @@
                 app:tint="@color/dark_grey" />
 
         </LinearLayout>
-        <ImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/morning"
             android:layout_marginEnd="@dimen/_2sdp"
+            android:id="@+id/weatherIcon"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             android:scaleType="centerCrop"
             android:layout_gravity="center_horizontal"/>
 
@@ -88,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
+                    android:id="@+id/message"
                     android:text="@string/morning"
                     android:layout_gravity="center_horizontal"
                     android:textSize="@dimen/_12sdp"
@@ -111,6 +115,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
+                            android:id="@+id/humidity"
                             android:text="32°"
                             android:textSize="@dimen/_12sdp"
                             android:fontFamily="@font/firs_nueu_medium"/>
@@ -139,6 +144,7 @@
                             android:textColor="@color/black"
                             android:text="@string/_0_01_in"
                             android:textSize="@dimen/_12sdp"
+                            android:id="@+id/prec"
                             android:fontFamily="@font/firs_nueu_medium"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -163,6 +169,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
+                            android:id="@+id/wind"
                             android:text="6 mph/s"
                             android:textSize="@dimen/_12sdp"
                             android:fontFamily="@font/firs_nueu_medium"/>

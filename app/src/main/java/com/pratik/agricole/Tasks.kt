@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.PopupMenu
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,10 +17,13 @@ import com.pratik.agricole.databinding.FragmentTasksBinding
 
 
 class Tasks : Fragment() {
-
     private var _binding: FragmentTasksBinding? = null
     private val binding get() = _binding!!
     lateinit var dbHandler: DBHandler
+    val options = arrayOf(
+        "Water Farm", "Seed the Wheat", "Add fertilizer to Rice Farm", "Water Tomato Field"
+    )
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,22 +38,39 @@ class Tasks : Fragment() {
         binding.fabDashboard.setOnClickListener {
             val dialog = AlertDialog.Builder(requireActivity())
             dialog.setTitle("Add ToDo")
+
             val view = layoutInflater.inflate(R.layout.dialog_dashboard, null)
-            val toDoName = view.findViewById<EditText>(R.id.ev_todo)
+            val spinner = view.findViewById<Spinner>(R.id.spinner_todo_options)
+
+            // Define your dropdown options
+
+            // Create an ArrayAdapter using the string array and a default spinner layout
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
+
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+
             dialog.setView(view)
             dialog.setPositiveButton("Add") { _: DialogInterface, _: Int ->
-                if (toDoName.text.isNotEmpty()) {
-                    val toDo = ToDo()
-                    toDo.name = toDoName.text.toString()
-                    dbHandler.addToDo(toDo)
-                    refreshList()
-                }
+                val selectedOption = spinner.selectedItem.toString()
+                // Now you have the selected option, you can do whatever you want with it
+                // For now, let's just show it in a Toast
+//                Toast.makeText(requireContext(), "Selected option: $selectedOption", Toast.LENGTH_SHORT).show()
+                val toDo = ToDo()
+                toDo.name = selectedOption
+                dbHandler.addToDo(toDo)
+                refreshList()
+                // You can add your database handling logic here
             }
             dialog.setNegativeButton("Cancel") { _: DialogInterface, _: Int ->
 
             }
             dialog.show()
         }
+
         return binding.root
     }
 
@@ -61,21 +78,42 @@ class Tasks : Fragment() {
         val dialog = AlertDialog.Builder(requireActivity())
         dialog.setTitle("Update ToDo")
         val view = layoutInflater.inflate(R.layout.dialog_dashboard, null)
-        val toDoName = view.findViewById<EditText>(R.id.ev_todo)
-        toDoName.setText(toDo.name)
+        val spinner = view.findViewById<Spinner>(R.id.spinner_todo_options)
+
+        // Define your dropdown options
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // Apply the adapter to the spinner
+        spinner.adapter = adapter
+
+        // Set the selected value of the spinner to the current value of the ToDo item
+        val selectedIndex = options.indexOf(toDo.name)
+        spinner.setSelection(selectedIndex)
+
         dialog.setView(view)
         dialog.setPositiveButton("Update") { _: DialogInterface, _: Int ->
-            if (toDoName.text.isNotEmpty()) {
-                toDo.name = toDoName.text.toString()
-                dbHandler.updateToDo(toDo)
-                refreshList()
-            }
+            val selectedOption = spinner.selectedItem.toString()
+            // Now you have the selected option, you can do whatever you want with it
+            // For now, let's just show it in a Toast
+//            Toast.makeText(requireContext(), "Selected option: $selectedOption", Toast.LENGTH_SHORT).show()
+
+            toDo.name = selectedOption
+            dbHandler.updateToDo(toDo)
+
+            // Refresh the list
+            refreshList()
         }
         dialog.setNegativeButton("Cancel") { _: DialogInterface, _: Int ->
 
         }
         dialog.show()
     }
+
 
     override fun onResume() {
         refreshList()
