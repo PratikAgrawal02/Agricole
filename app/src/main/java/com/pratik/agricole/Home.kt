@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -68,6 +69,15 @@ class Home : Fragment() {
             LocationServices.getFusedLocationProviderClient(requireActivity())
         fetchLocation()
 
+        binding.seeallfields.setOnClickListener{
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            if (transaction != null) {
+                transaction.replace(R.id.frame_layout, Feilds())
+                transaction.disallowAddToBackStack()
+                transaction.commit()
+            }
+
+        }
 
         binding.chatgptcard.setOnClickListener {
             openchatgpt(it)

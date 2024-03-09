@@ -20,16 +20,16 @@
     <string name="login_error_incorrect_input">उपयोगकर्ता नाम या लॉगिन ग़लत है. पुनः प्रयास करें या साइन अप करें!</string>
 
 
-    <string name="job_success">Job Success</string>
-    <string name="ui_ux_designer">UI/UX Designer</string>
-    <string name="my_desc">Doing at the sweet spot between aesthetics and elegance to give life to your brand.My opinion belong to nobody but myself.</string>
-    <string name="about_me">About Me</string>
-    <string name="contact">Contact</string>
-    <string name="skills">Skills</string>
-    <string name="ratings">Star Ratings</string>
-    <string name="samplereview">3rd Year UnderGraduate IIITS</string>
+    <string name="job_success">नौकरी में सफलता</string>
+    <string name="ui_ux_designer">यूआई/यूएक्स डिजाइनर</string>
+    <string name="my_desc">हम 3 लोगों की एक टीम हैं जो फार्म प्रबंधन के समाधान पर काम कर रहे हैं। बेझिझक हमसे संपर्क करें</string>
+    <string name="about_me">मेरे बारे में</string>
+    <string name="contact">संपर्क</string>
+    <string name="skills">कौशल</string>
+    <string name="ratings">स्टार रेटिंग</string>
+    <string name="samplereview">तृतीय वर्ष स्नातक IIITS</string>
 
-    <string name="about_us">About Us</string>
+    <string name="about_us">हमारे बारे में</string>
     <!--    Parth-->
 
 
