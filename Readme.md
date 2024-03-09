@@ -27,10 +27,6 @@ Each individual farmer gets 10 free farms to register. To register more farms, u
 
 We value your feedback! If you have any suggestions, comments, or issues regarding the Farm Management App, please reach out to us at [support@farmmanagementapp.com](mailto:support@farmmanagementapp.com).
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 Thank you for choosing our Farm Management App! We hope it helps simplify your farm management tasks and improves your farming experience.
